@@ -1,9 +1,15 @@
+import { Outlet } from 'react-router';
 import './App.css';
+import Navbar from './Components/Navbar';
 
 function App() {
   return (
     <div className="App">
-     <h1>Hello Every One Welcome to the Project Vydya</h1>
+      <Navbar/>
+      <div style={{minHeight:'90vh' ,display:'flex',justifyContent:'center',alignItems:'center'}}>
+
+     <Outlet/>
+      </div>
     </div>
   );
 }
