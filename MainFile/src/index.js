@@ -8,7 +8,8 @@ import Appointment from './Components/Appointment/Appointment'
 import BloodServices from './Components/BloodServices/BloodServices'
 import UserInfo from './Components/UserInfo/UserInfo'
 import OurProducts from './Components/OurProducts/OurProducts'
-import { Route, createBrowserRouter, RouterProvider, createRoutesFromChildren, Routes } from 'react-router-dom';
+import Login from './Components/Login/Login'
+import { Route, createBrowserRouter, RouterProvider, createRoutesFromChildren} from 'react-router-dom';
 
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
@@ -20,6 +21,7 @@ const routes = createBrowserRouter(createRoutesFromChildren(
     <Route path='userinfo' element={<UserInfo />} />
     <Route path='ourproducts' element={<OurProducts />} />
     <Route path='about' element={<About />} />
+    <Route path='login' element={<Login/>}/>
   </Route>
 ))
 root.render(

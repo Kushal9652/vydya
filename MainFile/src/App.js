@@ -1,14 +1,17 @@
 import { Outlet } from 'react-router';
 import './App.css';
 import Navbar from './Components/Navbar';
+import FooterNav from './Components/Footer';
 
 function App() {
   return (
-    <div className="App">
+    <div >
+      <div >
       <Navbar/>
-      <div style={{minHeight:'90vh' ,display:'flex',justifyContent:'center',alignItems:'center'}}>
-
+      <div className='h-screen w-auto'>
      <Outlet/>
+      </div>
+      <FooterNav/>
       </div>
     </div>
   );

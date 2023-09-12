@@ -8,10 +8,10 @@ nav {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background: #7bdff2;
   width: 100%;
   overflow: hidden;
   height: 4rem;
+  background: #111827;
 }
 
 nav ul {
@@ -31,7 +31,7 @@ nav ul li a {
   position: relative;
   text-decoration: none;
   transition: all 0.3s;
-  color: var(--nav-color);
+  color:white
 }
 
 nav ul li a::before {
@@ -55,7 +55,7 @@ nav ul li a:hover::before {
 .loginwrapper button {
   --primary-color: #645bff;
   --secondary-color: #fff;
-  --hover-color: #111;
+  --hover-color: #06b6d4;
   --arrow-width: 10px;
   --arrow-stroke: 2px;
   display: inline;
@@ -122,9 +122,9 @@ nav ul li a:hover::before {
 
 .Logo {
   position: relative;
-  top: 1rem;
-  width: 20rem;
-  height: 16rem;
+  top: 0.5rem;
+    width: 19rem;
+    height: 14rem;
 }
 
 .activeNav::before {
@@ -133,13 +133,14 @@ nav ul li a:hover::before {
 }
 
 .activeNav {
-  color: black;
+  color:#f59e0b;
 }
 
 .close_open {
   display: none;
 }
 .Options{
+  display: flex;
   background: transparent;
 }
 
@@ -148,9 +149,9 @@ nav ul li a:hover::before {
     /* display: none; */
     flex-direction: column;
     position: absolute;
-    top: 7%;
-    background:#6fc7b7;
-    right: 0;
+    top: 100%;
+    background:#27272a;
+   right: 0;
   }
 
   .OptionsList {
