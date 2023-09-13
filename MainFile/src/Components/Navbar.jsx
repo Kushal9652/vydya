@@ -31,7 +31,7 @@ export default function Navbar() {
   window.addEventListener('resize', handleResize);
 
   return (
-    <div className="fixed text-lg w-screen z-50">
+    <div data-aos="zoom-in-up"     data-aos-duration="1000" className="fixed text-lg w-screen z-40">
       <nav >
         <div><NavLink to="." end><img className="Logo" src={Logo} alt="LOGO HERE" /></NavLink></div>
         <div className='Options'>

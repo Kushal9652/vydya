@@ -5,15 +5,17 @@ import FooterNav from './Components/Footer';
 
 function App() {
   return (
-    <div >
+    <>
+    <div className='relative'>
       <div >
       <Navbar/>
-      <div className='h-screen w-auto'>
+      <div className='h-auto w-screen'>
      <Outlet/>
       </div>
-      <FooterNav/>
       </div>
     </div>
+      <FooterNav className='relative bottom-0'/>
+    </>
   );
 }
 

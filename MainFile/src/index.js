@@ -10,8 +10,9 @@ import UserInfo from './Components/UserInfo/UserInfo'
 import OurProducts from './Components/OurProducts/OurProducts'
 import Login from './Components/Login/Login'
 import { Route, createBrowserRouter, RouterProvider, createRoutesFromChildren} from 'react-router-dom';
-
-
+import 'aos/dist/aos.css'; // Import AOS CSS
+import AOS from 'aos';
+AOS.init();
 const root = ReactDOM.createRoot(document.getElementById('root'));
 const routes = createBrowserRouter(createRoutesFromChildren(
   <Route path='/' element={<App />}>

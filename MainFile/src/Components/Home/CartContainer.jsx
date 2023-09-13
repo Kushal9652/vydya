@@ -39,7 +39,7 @@ export default function CartContainer() {
        <div className='flex  relative h-[25.5rem] bottom-[10rem] w-full justify-center items-end'>
     {
       obj.map((value,index)=>{
-        return <Cart key={index} data={value}/>}
+        return <Cart  key={index} data={value}/>}
       )
     }
     </div>

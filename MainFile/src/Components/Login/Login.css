@@ -115,7 +115,7 @@ form {
   width: 50%;
   height: 100%;
   overflow: hidden;
-  z-index: 100;
+  z-index: 10;
   transition: 0.6s ease-in-out;
 }
 .overlay {

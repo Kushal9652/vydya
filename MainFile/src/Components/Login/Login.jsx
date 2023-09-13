@@ -16,7 +16,7 @@ export default function Login() {
     },[])
   return (
     <div className='body'>
-      <div className="container" id="container">
+      <div data-aos="fade-right" data-aos-duration="1000"  className="container" id="container">
       <div className="form-container sign-up-container">
         <form action="#">
           <h1 className='h1' id="vit">vydhya</h1>
@@ -43,7 +43,7 @@ export default function Login() {
           </div>
         </form>
       </div>
-      <div className="form-container sign-in-container">
+      <div data-aos="fade-left" data-aos-duration="1000" className="form-container sign-in-container">
         <form action="#">
           <h1 className='h1'>Login In</h1>
 
