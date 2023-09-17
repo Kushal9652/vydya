@@ -12,7 +12,7 @@ export default function Cart(props) {
     <p className="text-[2rem] pl-[1rem] h-[6rem] flex justify-center items-center pr-[1rem]">{props.data.title}</p>
     <hr/>
     <p data-aos="fade-up"
-     data-aos-duration="2000"  data-aos-easing="ease-in-sine" className="text-black pt-1 pl-[1rem] h-[11rem] leading-[1.5rem]">{props.data.data}</p>
+     data-aos-duration="2000"  data-aos-easing="ease-in-sine" className="text-white pt-1 pl-[1rem] h-[11rem] leading-[1.5rem]">{props.data.data}</p>
     <hr />
     <Link to={props.data.link}>
     

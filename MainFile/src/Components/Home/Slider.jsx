@@ -66,21 +66,21 @@ export default function Slider() {
     };
     let ele = [
 
-        <div data-aos="zoom-in"     data-aos-duration="1000" className='relative w-full h-[28rem] top-[4rem] sm:h-[45rem]' >
+        <div data-aos="zoom-in"     data-aos-duration="1000" className='relative w-full h-[28rem]  sm:h-[45rem]' >
             <img className=' w-full h-full ' src={WelcomeBg} alt="" />
             <p data-aos="fade-down"
      data-aos-easing="linear"
-     data-aos-duration="1500" className='absolute top-[35%] left-[25%] text-[2rem] sm:left-[33%] sm:text-[4rem]'>Welcome to VYDYA</p>
+     data-aos-duration="1500" className='absolute top-[35%] left-[25%] text-[2rem] sm:left-[33%] sm:text-[4rem] text-white'>Welcome to VYDYA</p>
             <img className='absolute top-[47%] left-[19%] w-[61%]' src={HeartBeat} alt="" />
             <p data-aos="fade-up"
      data-aos-easing="linear"
-     data-aos-duration="1500" className='absolute top-[53%] left-[29%] text-[130%] sm:left-[29%] sm:top-[56%] sm:text-[4rem]'>Trusted By 3,000+ User</p>
+     data-aos-duration="1500" className='absolute top-[53%] left-[29%] text-[130%] sm:left-[29%] sm:top-[56%] text-white sm:text-[4rem]'>Trusted By 3,000+ Users</p>
         </div>,
 
-        <div className='absolute flex justify-between bg-gradient-to-b from-gray-900 via-purple-900 to-violet-600 w-full top-[4rem] h-[28rem] sm:h-[45rem]' >
+        <div className='absolute flex justify-between bg-gradient-to-b from-gray-900 via-purple-900 to-violet-600 w-full  h-[28rem] sm:h-[45rem]' >
             <div>
-                <h1 className='text-[3rem] font-semibold pt-8 sm:pl-[15rem] sm:text-[6rem] sm:font-bold pl-8'> We Care About Your Health</h1>
-                <p className='text-[1.5rem] font-light pl-[15rem]'>Our team of dedicated nutritionists and health experts is here to guide you on your journey to better health. Whether you're looking for dietary recommendations, weight management tips, or general wellness advice, we offer personalized solutions to help you lead a healthier life</p>
+                <h1 className='text-[3rem] text-white font-semibold pt-8 sm:pl-[15rem] sm:text-[6rem] sm:font-bold pl-8'> We Care About Your Health</h1>
+                <p className='text-[1.5rem] font-light pl-[15rem]  text-white'>Our team of dedicated nutritionists and health experts is here to guide you on your journey to better health. Whether you're looking for dietary recommendations, weight management tips, or general wellness advice, we offer personalized solutions to help you lead a healthier life</p>
                 <Button gradientDuoTone="cyanToBlue" className="ml-[15rem] mt-[1rem]">
                     <Link to='/about'>About us</Link>
                 </Button>
@@ -89,7 +89,7 @@ export default function Slider() {
         </div>,
 
 
-        <div className=' bg-[conic-gradient(at_right,_var(--tw-gradient-stops))] from-indigo-200 via-slate-600 to-indigo-200 flex justify-between relative w-full h-[28rem] top-[4rem] sm:h-[45rem]' >
+        <div className=' bg-[conic-gradient(at_right,_var(--tw-gradient-stops))] from-indigo-200 via-slate-600 to-indigo-200 flex justify-between relative w-full h-[28rem]  sm:h-[45rem]' >
             <div className='z-20'>
                 <p className='text-[3rem] font-semibold pt-8 sm:pl-[15rem] text-black pl-[15rem]'>Provided Medical Services</p>
                 <p className='text-[1.5rem] font-light py-[2rem] pl-[15rem]'>At Vydya, we take your health and well-being seriously. We are dedicated to providing you with a comprehensive healthcare experience that goes beyond the ordinary. Our commitment is rooted in our mission to empower you to take charge of your health journey</p>
@@ -136,8 +136,6 @@ export default function Slider() {
                             }`} style={{ transitionDuration: '2s' }}
                     >
                         {ele[index]}
-                        <h1 className="text-4xl">{slide.title}</h1>
-                        <p>{slide.content}</p>
                     </div>
                 ))}
                 <button
