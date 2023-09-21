@@ -28,7 +28,7 @@ function LittlePara(props) {
   if(props.data.path){
   return(
     <Link to={props.data.path}>
-    <p className='text-[2rem] font-semibold '>{props.data.title}</p>
+    <p className='text-[2rem] hover:text-yellow-400 hover:underline font-semibold '>{props.data.title}</p>
     <p className='text-xl font-light pl-[1rem] py-[0.5rem]'> {props.data.data}</p>
   </Link>
   )
