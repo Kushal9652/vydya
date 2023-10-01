@@ -1,5 +1,6 @@
 import { Outlet } from 'react-router';
 import './App.css';
+
 import Navbar from './Components/Navbar';
 // import FooterNav from './Components/Footer';
 
