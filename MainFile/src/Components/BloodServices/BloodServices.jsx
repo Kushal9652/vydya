@@ -17,13 +17,14 @@ import img3 from './Images/img3.jpg'
 export default function BloodServices() {
   useEffect(()=>{
     function fetchDataAndPopulateTable() {
-      fetch('db1.php') // Replace 'your_php_script.php' with the actual URL of your PHP script
+      const url = 'http://localhost/vydya/vydya/MainFile/backend/db1.php';
+      fetch(url)
           .then(response => response.json())
           .then(data => {
               const donorTableBody = document.getElementById('donorTableBody');
-
-              // Clear existing table rows
               donorTableBody.innerHTML = '';
+
+              
 
               // Iterate through the data and add rows to the table
               data.forEach(row => {
@@ -75,7 +76,7 @@ export default function BloodServices() {
 
   return (
     <div>
-      <div className='h-[60rem] flex items-center justify-start  bg-cover w-full bg-top' style={{ backgroundImage: `url(${backgroundImage})` }}>
+      <div className='h-[60rem] flex items-center justify-start  bg-cover w-full bg-top' style={{ backgroundImage:` url(${backgroundImage})` }}>
         <div className='pl-[11rem]'>
           <p className='text-white text-3xl pb-[1.5rem]'>Donate blood,save life !</p>
           <p className='text-white text-8xl font-[1000] pb-[1rem]'>Your Blood <br />Can Bring Smile <br />In Other Person Face</p>
@@ -126,7 +127,7 @@ export default function BloodServices() {
 
       <div className='w-full h-[90rem] relative'>
 
-        <div style={{ backgroundImage: `url(${AppointmentWomen})` }} className=' flex justify-end bg-cover relative h-[40%] '>
+        <div style={{ backgroundImage:` url(${AppointmentWomen})` }} className=' flex justify-end bg-cover relative h-[40%] '>
           <div className='h-full relative w-[35%] mr-[5%] bg-[#e2e8f0] '>
             <div className='h-[20%] flex justify-center items-center w-full bg-slate-800'> <p className='text-white text-3xl font-extrabold'>REQUEST APPOINTMENT</p></div>
             <form action="" >
@@ -251,7 +252,7 @@ export default function BloodServices() {
 
 
 
-            <div className=" rounded-lg p-4 text-center w-[18rem] h-[15rem] bg-[aliceblue]">
+            <div className=" rounded-lg p-4 text-center w-[18rem] h-[15rem] bg-[rgb(240,248,255)]">
               <i className="fa fa-stethoscope icon text-blue-500 text-5xl "></i>
               <span className="block text-4xl font-extrabold text-red-700 my-[1rem] mt-[2rem]">3238</span>
               <h4 className="text-3xl text-blue-900 uppercase pt-[1rem]">Happy Donors</h4>
@@ -294,8 +295,58 @@ export default function BloodServices() {
               <th scope="col" className="px-6 text-[1.5rem] font-extrabold py-4">Phone Number</th>
               <th scope="col" className="px-6 text-[1.5rem] font-extrabold py-4">Place</th>
             </tr>
+            
           </thead>
-          <tbody className='donorTableBody'>
+          <tbody className='donorTableBody' id='donorTableBody'>
+            <tr>
+              <th className='px-6 text-[1rem] font-extrabold py-4'>1</th>
+              <th className='px-6 text-[1rem] font-extrabold py-4'>O+</th>
+              <th className='px-6 text-[1rem] font-extrabold py-4'>Baba Fakruddin</th>
+              <th className='px-6 text-[1rem] font-extrabold py-4'>8790616460</th>
+              <th className='px-6 text-[1rem] font-extrabold py-4'>Guntakal</th>
+            </tr>
+            <tr >
+              <th className='px-6 text-[1rem] font-extrabold py-4'>2</th>
+              <th className='px-6 text-[1rem] font-extrabold py-4'>B+</th>
+              <th className='px-6 text-[1rem] font-extrabold py-4'>Kushal</th>
+              <th className='px-6 text-[1rem] font-extrabold py-4'>6304499686</th>
+              <th className='px-6 text-[1rem] font-extrabold py-4'>Tirupathi</th>
+            </tr>
+            <tr>
+              <th className='px-6 text-[1rem] font-extrabold py-4'>3</th>
+              <th className='px-6 text-[1rem] font-extrabold py-4'>A+</th>
+              <th className='px-6 text-[1rem] font-extrabold py-4'>Geethika</th>
+              <th className='px-6 text-[1rem] font-extrabold py-4'>8751007246</th>
+              <th className='px-6 text-[1rem] font-extrabold py-4'>Tirupathi</th>
+            </tr>
+            <tr>
+              <th className='px-6 text-[1rem] font-extrabold py-4'>4</th>
+              <th className='px-6 text-[1rem] font-extrabold py-4'>A-</th>
+              <th className='px-6 text-[1rem] font-extrabold py-4'>Vishnu Vardhan</th>
+              <th className='px-6 text-[1rem] font-extrabold py-4'>9652769398</th>
+              <th className='px-6 text-[1rem] font-extrabold py-4'>Chandragiri</th>
+            </tr>
+            <tr>
+              <th className='px-6 text-[1rem] font-extrabold py-4'>5</th>
+              <th className='px-6 text-[1rem] font-extrabold py-4'>A-</th>
+              <th className='px-6 text-[1rem] font-extrabold py-4'>Rohith Kumar</th>
+              <th className='px-6 text-[1rem] font-extrabold py-4'>856756872</th>
+              <th className='px-6 text-[1rem] font-extrabold py-4'>Tadipatri</th>
+            </tr>
+            <tr>
+              <th className='px-6 text-[1rem] font-extrabold py-4'>6</th>
+              <th className='px-6 text-[1rem] font-extrabold py-4'>B+</th>
+              <th className='px-6 text-[1rem] font-extrabold py-4'>Kusuma Priya</th>
+              <th className='px-6 text-[1rem] font-extrabold py-4'>1234567890</th>
+              <th className='px-6 text-[1rem] font-extrabold py-4'>Chandragiri</th>
+            </tr>
+            <tr>
+              <th className='px-6 text-[1rem] font-extrabold py-4'>7</th>
+              <th className='px-6 text-[1rem] font-extrabold py-4'>O-</th>
+              <th className='px-6 text-[1rem] font-extrabold py-4'>Sheksha vali</th>
+              <th className='px-6 text-[1rem] font-extrabold py-4'>7894561230</th>
+              <th className='px-6 text-[1rem] font-extrabold py-4'>Dharmavaram</th>
+            </tr>
           
           </tbody>
         </table>

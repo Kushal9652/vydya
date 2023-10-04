@@ -9,6 +9,7 @@ import BloodServices from './Components/BloodServices/BloodServices'
 import UserInfo from './Components/UserInfo/UserInfo'
 import OurProducts from './Components/OurProducts/OurProducts'
 import Login from './Components/Login/Login'
+import {Cart} from './Components/OurProducts/OurProducts'
 import { Route, createBrowserRouter, RouterProvider, createRoutesFromChildren} from 'react-router-dom';
 import 'aos/dist/aos.css'; // Import AOS CSS
 import AOS from 'aos';
@@ -20,9 +21,10 @@ const routes = createBrowserRouter(createRoutesFromChildren(
     <Route path='appointment' element={<Appointment />} />
     <Route path='bloodservices' element={<BloodServices />} />
     <Route path='userinfo' element={<UserInfo />} />
-    <Route path='ourproducts' element={<OurProducts />} />
+    <Route path='ourproducts/*'  element={<OurProducts />}   > <Route path='addcart' element={<Cart/>}/></Route>
     <Route path='about' element={<About />} />
     <Route path='login' element={<Login/>}/>
+   
   </Route>
 ))
 root.render(

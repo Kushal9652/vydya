@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Animated Login Form</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
+  <link rel="stylesheet" href="login.css" />
+</head>
+
+<body>
+  <form id="appointmentForm" onsubmit="validateForm(event)" method="post" action="book.php"></form>
+  <div class="login_form_container">
+    <div class="login_form">
+      <h2>Book an Appointment</h2>
+      <div class="input_group">
+        <label for="patient_name"> Name:</label>
+        <input type="text" placeholder="Enter your Name" class="input_text" autocomplete="off" name="name" />
+      </div>
+      <div class="input_group">
+        <label for="email">Email:</label>
+        <input type="text" placeholder="Enter your Email" class="input_text" autocomplete="off" name=":email" />
+      </div>
+      <div class="input_group">
+        <label for="phone">Phone:</label>
+        <input type="text" placeholder="Enter your Number" class="input_text" autocomplete="off" name="phone" />
+      </div>
+      <div class="input_group">
+        <label for="appointment_date">Date:</label>
+        <input type="date" class="input_text" autocomplete="off" name="date" />
+      </div>
+      <div class="input_group">
+        <label for="doctor">Select Doctor:</label>
+        <select id="doctor" name="doctor" required>
+          <option value="doctor">doctor</option>
+          <option value="pulmo">pulmonologist</option>
+          <option value="cardio">cardiologist</option>
+          <option value="Gynecologist">Gynecologist</option>
+        </select>
+      </div>
+    </div>
+    <div class="button_group" id="login_button">
+      <a href="book.php" class="btn">submit</a>
+    </div>
+  </div>
+  </form>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+  <script>
+    $(".input_text").focus(function () {
+      $(this).prev('.fa').addclass('glowIcon')
+    })
+    $(".input_text").focusout(function () {
+      $(this).prev('.fa').removeclass('glowIcon')
+    })
+
+  </script>
+</body>
+
+</html>
