@@ -35,8 +35,8 @@ export default function Navbar() {
       <nav >
         <div><NavLink to="." end><img className="Logo" src={Logo} alt="LOGO HERE" /></NavLink></div>
         <div className='Options'>
-          <ul className="OptionsList text-sm">
-            <li><NavLink end className={({ isActive }) => isActive ? "activeNav" : null} to="." > Home</NavLink></li>
+          <ul className="OptionsList text-sm mr-[20rem]">
+            <li><NavLink end className={({ isActive }) => isActive ? "activeNav" : null} to="/home" > Home</NavLink></li>
             <li><NavLink className={({ isActive }) => isActive ? "activeNav" : null} to="/bloodservices" > Blood Services</NavLink></li>
             <li><NavLink className={({ isActive }) => isActive ? "activeNav" : null} to="/appointment" > Appointment</NavLink></li>
             <li><NavLink className={({ isActive }) => isActive ? "activeNav" : null} to="/userinfo" > User Info</NavLink></li>
@@ -45,7 +45,7 @@ export default function Navbar() {
           </ul>
 
         </div>
-        <div className='loginwrapper mr-[2rem]' >
+        {/* <div className='loginwrapper mr-[2rem]' >
           <Link to='/login'>
           <button>
             Sign up
@@ -55,7 +55,7 @@ export default function Navbar() {
             </div>
           </button>
           </Link>
-        </div>
+        </div> */}
         <span className="close_open" onClick={() => {
           menuClick();
         }}>

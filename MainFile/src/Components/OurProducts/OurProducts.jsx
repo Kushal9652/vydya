@@ -25,8 +25,34 @@ import Pain3 from './Images/Medicines/stomach pain/Pain3.png'
 import Pain4 from './Images/Medicines/stomach pain/Pain4.png'
 import Pain5 from './Images/Medicines/stomach pain/Pain5.png'
 import './Style.css'
+import { Carousel } from 'flowbite-react';
+
 import { NavLink } from 'react-router-dom'
 import { useMatch, Route, Routes } from 'react-router-dom';
+const WelocomeProducts=[
+  {
+    img: Cold1,
+    name: "Cetrizine",
+    price: '79',
+    star: '4.3',
+    data:"Cetirizine is an antihistamine used to relieve allergy symptoms such as watery eyes, runny nose, itching eyes/nose, sneezing, hives, and itching. It works by blocking a certain natural substance (histamine) that your body makes during an allergic reaction.Cetirizine does not prevent hives or prevent/treat a serious allergic reaction (such as anaphylaxis)."
+  }
+  ,
+  {
+    img:Cold2,
+    name: "Oxymetazoline",
+    price: '69',
+    star: '4.0',
+    data:"Oxymetazoline nasal spray is used to relieve nasal discomfort caused by colds, allergies, and hay fever. It is also used to relieve sinus congestion and pressure. Oxymetazoline nasal spray should not be used to treat children younger than 6 years of age unless it is recommended by a doctor. Children 6 to 12 years of age should use oxymetazoline nasal spray carefully and under adult supervision. Oxymetazoline is in a class of medications called nasal decongestants. It works by narrowing the blood vessels in the nasal passages.",
+  },
+  {
+    img: Cough3,
+    name: "Benadryl",
+    price: '90',
+    star: '5.0',
+    data:"Benadryl Syrup is used in the treatment of cough. It relieves allergy symptoms such as runny nose, stuffy nose, sneezing, watery eyes, and congestion or stuffiness. It also thins mucus in the nose, windpipe, and lungs, making it easier to cough out.Benadryl Syrup is taken with or without food in a dose and duration as advised by the doctor. The dose you are given will depend on your condition and how you respond to the medicine.",
+  }
+]
 const Products = [[
   {
     img: Cold1,
@@ -276,7 +302,44 @@ export default function OurProducts() {
           {/* Other child routes */}
         </Routes> : <div className='body1 '>
 
-          <p className='font-extrabold text-3xl text-center p-[1rem]'>Cold Tablets</p>
+       <div className='h-[30rem] bg-[#a5f3fc]'>
+       <Carousel className='overflow-hidden' >
+              {
+                WelocomeProducts.map((ele, index) => {
+                  return (
+                  <div className='flex justify-center items-center w-full h-[28rem]'>
+                    <div className='flex relative w-[70%] h-[28rem] '>
+                    <div className='flex  justify-center items-center'>
+                    <img className='h-[20rem] w-[86rem]' src={ele.img} alt={ele.name} />
+                    
+                    </div>
+                    <div className=' flex flex-col justify-center items-center'>
+                        <p className='text-4xl p-8 font-extrabold'>{ele.name}</p>
+                        <p className='text-xl pl-[1rem] font-[500]'>{ele.data}</p>
+                        <div className=" flex items-center justify-center gap-5 m-[1rem]">
+                              <div className="card-star ">
+                                <span className="rating-value ">{ele.star}</span>
+                                <span className="star">&#9733;</span>
+                              </div>
+                              <p className="card-price">₹{ele.price}</p>
+                            </div>
+                            <div className=" flex justify-center items-center translate-y-0">
+                              <button className="btn2 btn-success"  onClick={()=>Buybtn()}>Buy Now</button>
+                              {childdata.indexOf(ele.name) === -1 ? <button value={ele.name} className="btn2 btn-border add-to-cart" id='Cart' onClick={() => {
+                                setchilddata([...childdata, ele.name])
+                              }} >Add to Cart</button> : <button value={ele.name} onClick={() => ViewCart()} className="btn2 btn-border add-to-cart" ><NavLink className={({ isActive }) => isActive ? "activeNav" : null} to="addcart" >View Cart</NavLink></button>}
+
+                            </div>
+                    </div>
+                  </div>
+                  </div>
+                  
+                  )
+                })
+              }
+
+            </Carousel>
+       </div>
           {
             Products.map((element, index) => {
               return (
