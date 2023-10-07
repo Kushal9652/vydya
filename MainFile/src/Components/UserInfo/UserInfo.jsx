@@ -1,11 +1,10 @@
 import React from 'react'
-// import Bmi from './Bmi.jsx'
+import Bmi from './Bmi.jsx'
 
 export default function UserInfo() {
   return (
-    <div>
-      {/* <Bmi/> */}
-      <p>Hello User Info</p>
+    <div className='w-full min-h-[91.9vh] relative'>
+      <Bmi/>
     </div>
   )
 }

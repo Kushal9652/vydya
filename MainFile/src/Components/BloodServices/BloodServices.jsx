@@ -80,7 +80,9 @@ const Onsubmit=()=>{
   return (
     <div>
       <div className='h-[60rem] flex items-center justify-start  bg-cover w-full bg-top' style={{ backgroundImage:` url(${backgroundImage})` }}>
-        <div className='pl-[11rem]'>
+        <div className='pl-[11rem]'data-aos="fade-right"
+     data-aos-easing="linear"
+     data-aos-duration="1000">
           <p className='text-white text-3xl pb-[1.5rem]'>Donate blood,save life !</p>
           <p className='text-white text-8xl font-[1000] pb-[1rem]'>Your Blood <br />Can Bring Smile <br />In Other Person Face</p>
           <div><button className='bg-red-500 text-[20px] text-black hover:bg-blue-700 font-bold  py-2 px-4 border border-black h-[4rem] rounded'>Donate Now</button> <button className='bg-[#1e293b] hover:bg-blue-700 font-bold border-black rounded text-white py-2 px-4 text-[20px] h-[4rem] '>+91 94651XXXXX</button></div>
@@ -89,7 +91,9 @@ const Onsubmit=()=>{
 
 
       <div className='flex h-[35rem] w-full items-center justify-center'>
-        <div className='w-[40rem] h-[25rem] relative z-[2] bg-[#f1f5f9] translate-y-7 translate-x-7 p-9'>
+        <div data-aos="fade-right"
+     data-aos-easing="linear"
+     data-aos-duration="1000" className='w-[40rem] h-[25rem] relative z-[2] bg-[#f1f5f9] translate-y-7 translate-x-7 p-9'>
           <p className='text-[900] text-[4rem]'>Who We Are</p>
           <p className='text-[1.25rem] pb-[0.75rem]'> Vydya Blood Services is for public donation center with blood donation members in the changing health care system.
           </p>
@@ -101,10 +105,13 @@ const Onsubmit=()=>{
             <li className='text-lg'>The extra care of a multi-disciplinary team.</li>
           </ul>
         </div>
-        <div className='w-[40rem] h-[25rem] relative flex items-center justify-center' ><img src={WelcomeSide} className='h-full w-full absolute' alt="" /> <a href="https://www.youtube.com/watch?v=dAbmL_kXHj8"><i className="fa-regular fa-circle-play fa-beat-fade relative z-[2] text-[8rem]"></i></a></div>
+        <div className='w-[40rem] h-[25rem] relative flex items-center justify-center' data-aos="fade-left"
+     data-aos-easing="linear"
+     data-aos-duration="1000" ><img src={WelcomeSide} className='h-full w-full absolute' alt="" /> <a href="https://www.youtube.com/watch?v=dAbmL_kXHj8"><i className="fa-regular fa-circle-play fa-beat-fade relative z-[2] text-[8rem]"></i></a></div>
       </div>
 
-      <div style={{ backgroundImage: `url(${SecondBg})`, background: "linearGradient( rgba(0,0,0,0),  rgba(0,0,0,0) )", backgroundPosition: "top center", backgroundRepeat: "no-repeat", backgroundAttachment: "inherit" }} className='bg-cover  justify-center items-center gap-3 flex-col flex h-[65rem]'>
+      <div data-aos="fade-up"
+     data-aos-duration="2000" style={{ backgroundImage: `url(${SecondBg})`, background: "linearGradient( rgba(0,0,0,0),  rgba(0,0,0,0) )", backgroundPosition: "top center", backgroundRepeat: "no-repeat", backgroundAttachment: "inherit" }} className='bg-cover  justify-center items-center gap-3 flex-col flex h-[65rem]'>
         <div className='h-[15rem] w-full text-center pt-[3rem]'><p className='text-white text-3xl pt-5'>Awesome Words From Members</p> <p className='text-black font-bold text-5xl pt-10'>JOIN WITH US AND SAVE LIFE</p></div>
         <div className='h-[45rem] relative w-[75%] flex bg-white rounded-lg'>
           <div className='w-[50%] h-full z-20 '>
@@ -128,7 +135,8 @@ const Onsubmit=()=>{
         </div>
       </div>
 
-      <div className='w-full h-[90rem] relative'>
+      <div data-aos="fade-up"
+     data-aos-duration="2000" className='w-full h-[90rem] relative'>
 
         <div style={{ backgroundImage:` url(${AppointmentWomen})` }} className=' flex justify-end bg-cover relative h-[40%] '>
           <div className='h-full flex justify-center items-center flex-col relative w-[35%] mr-[5%] bg-[#e2e8f0] '>
@@ -251,7 +259,8 @@ const Onsubmit=()=>{
               <li className='text-lg'>Finally, Try to get a good night sound sleep after donation.</li>
             </ul>
           </div>
-          <div className='flex justify-around items-center p-[3rem]'>
+          <div data-aos="fade-up"
+     data-aos-duration="2000" className='flex justify-around items-center p-[3rem]'>
 
 
 
@@ -292,7 +301,8 @@ const Onsubmit=()=>{
       </div>
     
 
-       <div className='w-[80rem] ml-[13rem]'>
+       <div data-aos="fade-up"
+     data-aos-duration="2000" className='w-[80rem] ml-[13rem]'>
         <p className='font-extrabold text-[5rem] text-center'>NearBy Donars</p>
        <div className="flex flex-col">
   <div className="overflow-x-auto sm:-mx-6 lg:-mx-8">

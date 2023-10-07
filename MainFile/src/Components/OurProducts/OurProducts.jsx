@@ -302,12 +302,13 @@ export default function OurProducts() {
           {/* Other child routes */}
         </Routes> : <div className='body1 '>
 
-       <div className='h-[30rem] bg-[#a5f3fc]'>
-       <Carousel className='overflow-hidden' >
+       <div  className='h-[30rem] bg-[#bae6fd]'>
+       <Carousel  className='overflow-hidden' >
               {
                 WelocomeProducts.map((ele, index) => {
                   return (
-                  <div className='flex justify-center items-center w-full h-[28rem]'>
+                  <div 
+                   className='flex justify-center items-center w-full h-[28rem]'>
                     <div className='flex relative w-[70%] h-[28rem] '>
                     <div className='flex  justify-center items-center'>
                     <img className='h-[20rem] w-[86rem]' src={ele.img} alt={ele.name} />

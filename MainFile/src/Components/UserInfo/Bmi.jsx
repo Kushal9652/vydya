@@ -1,178 +1,231 @@
-import React from 'react'
-// import './styles.css'
-import { Select, Textarea, Button, Datepicker, TextInput } from 'flowbite-react';
-import { HiMail } from 'react-icons/hi';
-export default function Bmi() {
-    function getdata(){
-        var name=document.getElementById('name').value;
-        var age=document.getElementById('age').value;
-        var height=parseFloat(document.getElementById('h').value);
-        var weight=parseFloat(document.getElementById('w').value);
-        var h_measurement=document.getElementById('h_measurement').value;
-        
-        if(name && age && height && weight && h_measurement){
-         var heightOnMeter=H_convertToMeter(height,h_measurement);
-         var bmiRes=parseFloat(calculateBMI(weight,heightOnMeter));
-         display(name,bmiRes);
-        
-        console.log(bmiRes);
-        }
-        
-        else{
-            alert("Please enter value");
-        }
-        
-        }
-        
-        function H_convertToMeter(height,h_measurement){
-            var converValue=0;
-               
-            if(h_measurement==='m'){
-                converValue=height;
-            }
-            else if(h_measurement==='cm'){
-                converValue=height/100;
-            }
-            else if(h_measurement==='f'){
-                converValue=height*0.3048;
-            }
-            return converValue;
-        }
-        
-        function calculateBMI(weight,heightOnMeter) {
-         
-            var bmiRes=weight/((heightOnMeter)*(heightOnMeter));
-           return bmiRes;
-        }
-        
-        function display(uname,bmiRes){
-        
-            var display='';
-            if(bmiRes<16){
-                display='Hi '+uname+', Your BMI value is '+bmiRes+' n and you are in Underweight (Severe thinness)';
-            }
-            else if(bmiRes>=16 && bmiRes<=16.9){
-                display='Hi '+uname+', Your BMI value is '+bmiRes+'\n and you are in Underweight (Moderate thinness)';
-            }
-            else if(bmiRes>=17 && bmiRes<=18.4){
-                display='Hi '+uname+', Your BMI value is '+bmiRes+' \nand you are in Underweight (Mild thinness)';
-            } 
-            else if( bmiRes>=18.5 && bmiRes <=24.9){
-            display='Hi, '+uname+', Your BMI value is '+bmiRes+' \n and you are in Normal range';
-            }
-            else if( bmiRes >=25 && bmiRes<=29.9){
-                display='Hi '+uname+', Your BMI value is '+bmiRes+'\n and you are in Overweight (Pre-obese)';
-            }
-            else if(bmiRes>=30){
-                display='Hi '+uname+', Your BMI value is '+bmiRes+'\n and you are in Obese Class';
-            }
-            
-            var displayelement=document.getElementById('display');
-        
-           displayelement.querySelector('p').textContent=display;
-          
-            
-            
-        }
-        
-  return (
-    <div className='bmibody'>
-       <center>
-        <div className="container">
-        <form action="" onSubmit={()=>getdata()} >
-          <div className='grid grid-cols-2 gap-4'>
-            <div className="max-w-md">
+import React, { useEffect, useState } from 'react';
+import { Button} from 'flowbite-react';
 
-              <TextInput
-                addon="@"
-                id="username3"
-                placeholder="User Name"
-                required className='name'
-              />
-            </div>
-            <div className="max-w-md">
+function FoodAnalyzer() {
+  // State to store user input
+  const [foodText, setFoodText] = useState([]);
+  const [count, setcount] = useState(0)
+  const [nutrients, setnutrients] = useState([])
+ const [spinner,setspinner]=useState(false)
+  // State to store the analyzed data
+  const [analyzedData, setAnalyzedData] = useState(null);
 
-            <input
-                type="number"
-                className=" w peer block min-h-[auto] w-full rounded border-0 bg-white px-3 py-[0.32rem] leading-[1.6] outline-none transition-all duration-200 ease-linear focus:placeholder:opacity-100 peer-focus:text-primary data-[te-input-state-active]:placeholder:opacity-100 motion-reduce:transition-none dark:text-neutral-200 dark:placeholder:text-neutral-200 dark:peer-focus:text-primary [&:not([data-te-input-placeholder-active])]"
-                id="exampleFormControlInputNumber"
-                placeholder="Age"/>
-            </div>
-            <div
-              className="max-w-md"
-              id="select"
-            >
+  const handleInputChange = (e) => {
+    // Split the textarea value into an array of lines
+    const data = e.target.value.split('\n');
+    setFoodText(data);
+  };
 
-              <Select
-                id="countries"
-                required
-              >
-                <option>
-                  Timings for Docter Appointment
-                </option>
-                <option>
-                  9:00 AM
-                </option>
-                <option>
-                  10:00 AM
-                </option>
-                <option>
-                  11:00 AM
-                </option><option>
-                  12:00 PM
-                </option>
-                <option>
-                  4:00 PM
-                </option>
-                <option>
-                  5:00 PM
-                </option><option>
-                  6:00 PM
-                </option>
-              </Select>
-            </div>
-            <div >   <Datepicker /></div>
-            <div className="relative mb-3" data-te-input-wrapper-init>
-              <input
-                type="number"
-                className=" age peer block min-h-[auto] w-full rounded border-0 bg-white px-3 py-[0.32rem] leading-[1.6] outline-none transition-all duration-200 ease-linear focus:placeholder:opacity-100 peer-focus:text-primary data-[te-input-state-active]:placeholder:opacity-100 motion-reduce:transition-none dark:text-neutral-200 dark:placeholder:text-neutral-200 dark:peer-focus:text-primary [&:not([data-te-input-placeholder-active])]"
-                id="exampleFormControlInputNumber"
-                placeholder="Age"/>
+  const analyzeFood = async () => {
+    try {
+      // Replace 'YOUR_API_KEY' and 'YOUR_API_ID' with your actual API key and API ID
+      setspinner(true)
+      // console.log(true)
+      const apiKey = '214703b1261b254d5b3f416d6955c273';
+      const apiId = '6f8f6eca';
 
-            </div>
-            <div className="relative mb-3" data-te-input-wrapper-init>
-            <input
-                type="number"
-                className=" h peer block min-h-[auto] w-full rounded border-0 bg-white px-3 py-[0.32rem] leading-[1.6] outline-none transition-all duration-200 ease-linear focus:placeholder:opacity-100 peer-focus:text-primary data-[te-input-state-active]:placeholder:opacity-100 motion-reduce:transition-none dark:text-neutral-200 dark:placeholder:text-neutral-200 dark:peer-focus:text-primary [&:not([data-te-input-placeholder-active])]"
-                id="exampleFormControlInputNumber"
-                placeholder="Age"/>
+      // Create a JSON object representing the recipe data
+      const recipeData = {
+        title: 'Your Recipe Title',
+        ingr: foodText, // Array of ingredients
+      };
 
-            </div>
+      // Construct the API URL
+      const apiUrl = `https://api.edamam.com/api/nutrition-details?app_id=${apiId}&app_key=${apiKey}`;
+   
+      // Make a POST request using the fetch function
+      const response = await fetch(apiUrl, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(recipeData),
+      });
 
-          </div>
-          <div
-            className="w-full mt-[2rem]"
-            id="textarea"
+      if (!response.ok) {
+        throw new Error(`HTTP error! Status: ${response.status}`);
+      }
 
+      // Parse the response as JSON
+      const jsonData = await response.json();
+
+      // Update state with the analyzed data
+      setAnalyzedData(jsonData);
+      setspinner(false)
+      // console.log(false)
+      
+    } catch (error) {
+      console.error('Error analyzing food:', error);
+      setspinner(false)
+    alert("Your Item is Not in Our data base or entered incorrect item")
+
+    }
+  };
+
+  useEffect(() => {
+    // setspinner(true)
+    let nutrientsArray = [];
+    if (analyzedData && analyzedData.ingredients[0].parsed[0].nutrients) {
+      nutrientsArray = Object.keys(analyzedData.ingredients[count].parsed[0].nutrients).map((nutrientKey) => {
+        const nutrient = analyzedData.ingredients[count].parsed[0].nutrients[nutrientKey];
+        return {
+          key: nutrientKey,
+          label: nutrient.label,
+          quantity: nutrient.quantity,
+          unit: nutrient.unit
+        };
+      });
+    }
+    setnutrients(nutrientsArray)
+  }, [count, analyzedData])
+
+
+ 
+  if(spinner){
+return(
+  
+   <>
+  <div className="flex justify-center w-full h-[91.9vh] items-center space-x-2">
+  <div aria-label="Loading..." role="status">
+    <svg className="animate-spin  w-[15rem] h-[15rem] stroke-slate-500" viewBox="0 0 256 256">
+      <line x1="128" y1="32" x2="128" y2="64" strokeLinecap="round" strokeLinejoin="round" strokeWidth="24">
+      </line>
+      <line x1="195.9" y1="60.1" x2="173.3" y2="82.7" strokeLinecap="round" strokeLinejoin="round" strokeWidth="24">
+      </line>
+      <line x1="224" y1="128" x2="192" y2="128" strokeLinecap="round" strokeLinejoin="round" strokeWidth="24">
+      </line>
+      <line x1="195.9" y1="195.9" x2="173.3" y2="173.3" strokeLinecap="round" strokeLinejoin="round" strokeWidth="24">
+      </line>
+      <line x1="128" y1="224" x2="128" y2="192" strokeLinecap="round" strokeLinejoin="round" strokeWidth="24">
+      </line>
+      <line x1="60.1" y1="195.9" x2="82.7" y2="173.3" strokeLinecap="round" strokeLinejoin="round" strokeWidth="24">
+      </line>
+      <line x1="32" y1="128" x2="64" y2="128" strokeLinecap="round" strokeLinejoin="round" strokeWidth="24">
+      </line>
+      <line x1="60.1" y1="60.1" x2="82.7" y2="82.7" strokeLinecap="round" strokeLinejoin="round" strokeWidth="24">
+      </line>
+    </svg>
+  </div>
+  <span className="text-2xl font-medium text-slate-500">Loading...</span>
+</div>
+
+</>
+
+)
+  }
+  else{
+    return(
+      <div className='w-full  relative flex justify-center  '>
+        <div className='w-[60%]   flex flex-col  items-center '>
+          <p className='m-[2rem] text-5xl font-extrabold'>Nutrition Analyser</p>
+          <textarea
+            className='w-[40rem]'
+            placeholder="Enter food ingredients with measurments (one per line) like 1 cup chicken"
+            value={foodText.join('\n')} // Join the array back into a newline-separated string
+            rows='5'
+            onChange={handleInputChange}
+          />
+          <Button
+            gradientDuoTone="cyanToBlue"
+            onClick={analyzeFood}
+            className='mx-auto my-3 px-[1rem]'
+            type='submit'
           >
-
-            <Textarea
-              id="comment"
-              placeholder="Leave your some health condition for better procedure"
-              required
-              rows={5}
-            />
-          </div>
-          <Button gradientDuoTone="cyanToBlue" className='m-[2rem] px-[1rem]' type='submit'>
-            Get Appointment
+            Analyze
           </Button>
-
-        </form>
+          {analyzedData && (
+            <>
+              <div className='flex'>
+                <div className="w-[10rem] mx-[1rem] h-[10rem] bg-[aliceblue] my-[1rem] rounded-lg  text-center">
+                  <span className="block text-xl font-extrabold text-red-700  mt-[2rem]">{analyzedData.calories}</span>
+                  <h4 className="text-base text-blue-900 uppercase pt-[1rem]"> Total Calories</h4>
+                </div>
+                <div className="w-[10rem]  mx-[1rem] h-[10rem] bg-[aliceblue] my-[1rem] rounded-lg text-center">
+                  <span className="block text-xl font-extrabold text-red-700  mt-[2rem]">{analyzedData.totalCO2Emissions}</span>
+                  <h4 className="text-base text-blue-900 uppercase pt-[1rem]"> TotalCO2Emissions</h4>
+                </div>
+                <div className="w-[10rem] mx-[1rem] h-[10rem] bg-[aliceblue] my-[1rem] rounded-lg text-center">
+                  <span className="block text-xl font-extrabold text-red-700  mt-[2rem]">{analyzedData.co2EmissionsClass}</span>
+                  <h4 className="text-base text-blue-900 uppercase pt-[1rem]"> co2EmissionsClass</h4>
+                </div>
+                <div className="w-[10rem]  mx-[1rem] h-[10rem] bg-[aliceblue] my-[1rem] rounded-lg text-center">
+                  <span className="block text-xl font-extrabold text-red-700  mt-[2rem]">{analyzedData.totalWeight}</span>
+                  <h4 className="text-base text-blue-900 uppercase pt-[1rem]"> Total Weight</h4>
+                </div>
+              </div>
+              <table className="min-w-full text-left text-sm font-light border">
+                <thead className="border-[4px] font-medium border-black">
+                  <tr>
+                    <th scope="col" className="px-6 text-[1.5rem] font-extrabold py-4">ID</th>
+                    <th scope="col" className="px-6 text-[1.5rem] font-extrabold py-4">Food Name</th>
+                    <th scope="col" className="px-6 text-[1.5rem] font-extrabold py-4">Quantity</th>
+                    <th scope="col" className="px-6 text-[1.5rem] font-extrabold py-4">Measure</th>
+                    <th scope="col" className="px-6 text-[1.5rem] font-extrabold py-4">weight</th>
+                    <th scope="col" className="px-6 text-[1.5rem] font-extrabold py-4">Nutritions</th>
+  
+                  </tr>
+                </thead>
+                <tbody className='donorTableBody' id='donorTableBody'>
+                  {analyzedData.ingredients.map((ingredient, index) => (
+                    <tr key={index}>
+                      <td className='px-6 text-[1rem] font-extrabold py-1'>{index + 1}</td>
+                      <td className='px-6 text-[1rem] first-letter:capitalize font-extrabold py-1'>{ingredient.parsed[0].food}</td>
+                      <td className='px-6 text-[1rem] font-extrabold py-1'>{ingredient.parsed[0].quantity}</td>
+                      <td className='px-6 text-[1rem] first-letter:capitalize font-extrabold py-1'>{ingredient.parsed[0].measure}</td>
+                      <td className='px-6 text-[1rem] font-extrabold py-1'>{ingredient.parsed[0].weight}</td>
+                      <td className='px-6 text-[1rem] font-extrabold py-1'>   <Button gradientDuoTone="cyanToBlue" onClick={() => {
+                        setcount(index)
+                        // console.log(nutrients)
+                        // console.log(count)
+                      }} className='mx-auto my-3 px-[1rem]' type='submit'>
+                        Check Nutritions
+                      </Button></td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            
+            </>
+          )}
         </div>
-        <div id='display'>
-            <p className="result"></p>
-        </div>
-    </center>
-    </div>
-  )
+         {
+          analyzedData&&<div className='w-[40%] mt-[1rem] inline-block h-[91.9vh] overflow-y-scroll'>
+          <p className='w-full text-5xl text-center py-[1rem]'>Nutritions of {analyzedData.ingredients[count].parsed[0].food}</p>
+           <table className=" min-w-full  text-left text-sm font-light border">
+             <thead className="border-[4px] relative font-medium border-black">
+        
+               <tr className="  text-[1.5rem] text-center font-extrabold w-full py-[1rem]"> 
+                <th scope="col" className="px-6 text-left text-[1.5rem] font-extrabold py-4">Types</th>
+                  <th scope="col" className="px-6 text-left text-[1.5rem] font-extrabold py-4">Weight</th>
+                  </tr>
+             </thead>
+             <tbody>
+               {
+               nutrients&&nutrients.map((ele,index)=>{
+                 return(
+                   {
+                     "key": "ZN",
+                     "label": "Zinc, Zn",
+                     "quantity": 2.262,
+                     "unit": "mg"
+                   },
+                   <tr key={index}>
+                   <td className='px-6 text-[1rem] font-extrabold py-4'>{ele.label}</td>
+                   <td className='px-6 text-[1rem] font-extrabold py-4'>{ele.quantity}{ele.unit}</td>
+                 </tr>
+                 )
+               })
+               }
+             </tbody>
+           </table>
+         
+       </div>
+         }
+      </div>
+    )
+  }
+  
+  
 }
+
+export default FoodAnalyzer;

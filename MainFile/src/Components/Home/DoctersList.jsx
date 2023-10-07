@@ -10,7 +10,7 @@ import { Link } from 'react-router-dom'
 
 function Card(props) {
     return (
-      < Link to='about'>
+      < Link to='/about'>
        <div data-aos="fade-down"
         data-aos-easing="linear"
         data-aos-duration="1500" className=' bg-orange-300 mx-[0.8rem] justify-center items-center flex flex-col w-[17rem] overflow-hidden rounded-lg border'>
