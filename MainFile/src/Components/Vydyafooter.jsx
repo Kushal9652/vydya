@@ -8,7 +8,7 @@ export default function Vydyafooter() {
         <footer className='bg-[#111827] flex flex-col  w-full h-[27.5rem]'>
             <div className='flex
             '>
-            <div className=' h-full w-1/4'><img className='h-full w-full' src={Logo} alt="" /></div>
+            <div className=' h-full w-1/4'><NavLink to="/home" end><img className="w-full h-full" src={Logo} alt="LOGO HERE" /></NavLink></div>
             <div className=' h-full w-1/2 flex'>
                 <ul className="text-sm mr-[10rem]">
                     <li><NavLink end className={({ isActive }) => isActive ? "activeNav" : null} to="/home" > Home</NavLink></li>

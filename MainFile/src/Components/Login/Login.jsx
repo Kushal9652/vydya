@@ -1,5 +1,6 @@
 import React, { useEffect } from 'react'
 import './Login.css'
+import {NavLink} from 'react-router-dom'
 export default function Login() {
     useEffect(()=>{
         const signUpButton = document.getElementById("signUp");
@@ -45,11 +46,11 @@ export default function Login() {
       </div>
       <div data-aos="fade-left" data-aos-duration="1000" className="form-container sign-in-container">
         <form action="#">
-          <h1 className='h1'>Login In</h1>
+          <h1 className='h1'>LogIn</h1>
 
           <input className='input' type="email" placeholder="Email" id="mail" />
           <input className='input' type="password" placeholder="Password" id="pass" />
-          <button>Log In</button>
+          <button><NavLink to='/home'>Log In</NavLink></button>
           <br /><br /><br /><br /><br /><br />
 
           <div className="social-container">
@@ -78,7 +79,7 @@ export default function Login() {
             </p>
             <br />
             <p className='p' style={{color: "rgb(0, 68, 255)"}}>Already have an account?</p>
-            <button className="btnpress" id="signIn">Login In</button>
+            <button className="btnpress" id="signIn"><NavLink to='/home'>Log in</NavLink></button>
           </div>
           <div className="overlay-panel overlay-right">
             <h1>vydhya</h1>
@@ -86,7 +87,7 @@ export default function Login() {
             <br />
             <p className='p' style={{color: "rgb(0, 68, 255)"}}>Don't have an account?</p>
             <button className="btnpress" id="signUp" style={{color:" rgb(57, 49, 5)"}}>
-              Sign Up
+            Log in
             </button>
           </div>
         </div>

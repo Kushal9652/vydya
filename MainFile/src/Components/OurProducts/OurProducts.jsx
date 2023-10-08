@@ -248,7 +248,7 @@ export default function OurProducts() {
                 top: shopping_cart_pos.bottom - flying_img_pos.bottom + 30
             }
     
-            console.log(data.top);
+            
     
             flying_img.style.cssText = `
                                     --left : ${data.left.toFixed(2)}px;
@@ -282,7 +282,7 @@ export default function OurProducts() {
 
       });
     });
-    console.log(matchedData)
+
     setCartProducts(matchedData);
 
   }
@@ -307,7 +307,7 @@ export default function OurProducts() {
               {
                 WelocomeProducts.map((ele, index) => {
                   return (
-                  <div 
+                  <div key={index}
                    className='flex justify-center items-center w-full h-[28rem]'>
                     <div className='flex relative w-[70%] h-[28rem] '>
                     <div className='flex  justify-center items-center'>
@@ -496,7 +496,7 @@ export function Cart(props) {
       
     
        <div className='w-full h-[95vh] flex justify-center items-center'>
-           { console.log(data.Products)}<NavLink to='..' className='text-3xl font-extrabold'>Cart is Empty Go Back</NavLink>
+          <NavLink to='..' className='text-3xl font-extrabold'>Cart is Empty Go Back</NavLink>
        </div>
     )
   }

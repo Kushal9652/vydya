@@ -17,13 +17,14 @@ AOS.init();
 const root = ReactDOM.createRoot(document.getElementById('root'));
 const routes = createBrowserRouter(createRoutesFromChildren(
   <Route path='/' element={<App />}>
-    <Route index element={<Login />} />
+    <Route index element={<Login />}/ >
     <Route path='appointment' element={<Appointment />} />
     <Route path='bloodservices' element={<BloodServices />} />
     <Route path='userinfo' element={<UserInfo />} />
     <Route path='ourproducts/*'  element={<OurProducts />}   > <Route path='addcart' element={<Cart/>}/></Route>
     <Route path='about' element={<About />} />
     <Route path='home' element={<Home/>}/>
+    
    
   </Route>
 ))

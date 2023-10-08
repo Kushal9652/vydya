@@ -85,7 +85,7 @@ function FoodAnalyzer() {
 return(
   
    <>
-  <div className="flex justify-center w-full h-[91.9vh] items-center space-x-2">
+  <div className=" flex justify-center w-full h-[91.9vh] items-center space-x-2">
   <div aria-label="Loading..." role="status">
     <svg className="animate-spin  w-[15rem] h-[15rem] stroke-slate-500" viewBox="0 0 256 256">
       <line x1="128" y1="32" x2="128" y2="64" strokeLinecap="round" strokeLinejoin="round" strokeWidth="24">
@@ -136,19 +136,19 @@ return(
           {analyzedData && (
             <>
               <div className='flex'>
-                <div className="w-[10rem] mx-[1rem] h-[10rem] bg-[aliceblue] my-[1rem] rounded-lg  text-center">
+                <div className="overflow-hidden w-[10rem] mx-[1rem] h-[10rem] bg-[aliceblue] my-[1rem] rounded-lg  text-center">
                   <span className="block text-xl font-extrabold text-red-700  mt-[2rem]">{analyzedData.calories}</span>
                   <h4 className="text-base text-blue-900 uppercase pt-[1rem]"> Total Calories</h4>
                 </div>
-                <div className="w-[10rem]  mx-[1rem] h-[10rem] bg-[aliceblue] my-[1rem] rounded-lg text-center">
+                <div className=" overflow-hidden w-[10rem]  mx-[1rem] h-[10rem] bg-[aliceblue] my-[1rem] rounded-lg text-center">
                   <span className="block text-xl font-extrabold text-red-700  mt-[2rem]">{analyzedData.totalCO2Emissions}</span>
                   <h4 className="text-base text-blue-900 uppercase pt-[1rem]"> TotalCO2Emissions</h4>
                 </div>
-                <div className="w-[10rem] mx-[1rem] h-[10rem] bg-[aliceblue] my-[1rem] rounded-lg text-center">
+                <div className="overflow-hidden w-[10rem] mx-[1rem] h-[10rem] bg-[aliceblue] my-[1rem] rounded-lg text-center">
                   <span className="block text-xl font-extrabold text-red-700  mt-[2rem]">{analyzedData.co2EmissionsClass}</span>
                   <h4 className="text-base text-blue-900 uppercase pt-[1rem]"> co2EmissionsClass</h4>
                 </div>
-                <div className="w-[10rem]  mx-[1rem] h-[10rem] bg-[aliceblue] my-[1rem] rounded-lg text-center">
+                <div className="overflow-hidden w-[10rem]  mx-[1rem] h-[10rem] bg-[aliceblue] my-[1rem] rounded-lg text-center">
                   <span className="block text-xl font-extrabold text-red-700  mt-[2rem]">{analyzedData.totalWeight}</span>
                   <h4 className="text-base text-blue-900 uppercase pt-[1rem]"> Total Weight</h4>
                 </div>
@@ -172,7 +172,7 @@ return(
                       <td className='px-6 text-[1rem] first-letter:capitalize font-extrabold py-1'>{ingredient.parsed[0].food}</td>
                       <td className='px-6 text-[1rem] font-extrabold py-1'>{ingredient.parsed[0].quantity}</td>
                       <td className='px-6 text-[1rem] first-letter:capitalize font-extrabold py-1'>{ingredient.parsed[0].measure}</td>
-                      <td className='px-6 text-[1rem] font-extrabold py-1'>{ingredient.parsed[0].weight}</td>
+                      <td className='px-6 text-[1rem] font-extrabold py-1'>{ingredient.parsed[0].weight}g</td>
                       <td className='px-6 text-[1rem] font-extrabold py-1'>   <Button gradientDuoTone="cyanToBlue" onClick={() => {
                         setcount(index)
                         // console.log(nutrients)
@@ -189,9 +189,9 @@ return(
           )}
         </div>
          {
-          analyzedData&&<div className='w-[40%] mt-[1rem] inline-block h-[91.9vh] overflow-y-scroll'>
+          analyzedData&&<div className='w-[40%] min-h-full mt-[1rem] inline-block h-[91.9vh] overflow-y-scroll'>
           <p className='w-full text-5xl text-center py-[1rem]'>Nutritions of {analyzedData.ingredients[count].parsed[0].food}</p>
-           <table className=" min-w-full  text-left text-sm font-light border">
+           <table className=" min-w-full min-h-full  text-left text-sm font-light border">
              <thead className="border-[4px] relative font-medium border-black">
         
                <tr className="  text-[1.5rem] text-center font-extrabold w-full py-[1rem]"> 

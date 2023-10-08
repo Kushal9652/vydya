@@ -33,7 +33,7 @@ export default function Navbar() {
   return (
     <div className="fixed text-lg w-screen z-40">
       <nav >
-        <div><NavLink to="." end><img className="Logo" src={Logo} alt="LOGO HERE" /></NavLink></div>
+        <div><NavLink to="/home" end><img className="Logo" src={Logo} alt="LOGO HERE" /></NavLink></div>
         <div className='Options'>
           <ul className="OptionsList text-sm mr-[20rem]">
             <li><NavLink end className={({ isActive }) => isActive ? "activeNav" : null} to="/home" > Home</NavLink></li>

@@ -39,7 +39,7 @@ const Onsubmit=()=>{
               <TextInput
                 
                 id="username3"
-                placeholder="User Name"
+                placeholder="Patient Name"
                 required
               />
             </div>
