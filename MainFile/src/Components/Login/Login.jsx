@@ -50,7 +50,7 @@ export default function Login() {
 
           <input className='input' type="email" placeholder="Email" id="mail" />
           <input className='input' type="password" placeholder="Password" id="pass" />
-          <button><NavLink to='/home'>Log In</NavLink></button>
+          <button>Log In</button>
           <br /><br /><br /><br /><br /><br />
 
           <div className="social-container">
@@ -79,7 +79,7 @@ export default function Login() {
             </p>
             <br />
             <p className='p' style={{color: "rgb(0, 68, 255)"}}>Already have an account?</p>
-            <button className="btnpress" id="signIn"><NavLink to='/home'>Log in</NavLink></button>
+            <button className="btnpress" id="signIn">Log in</button>
           </div>
           <div className="overlay-panel overlay-right">
             <h1>vydhya</h1>
